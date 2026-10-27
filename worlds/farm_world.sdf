@@ -1,0 +1,786 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="proper_farm_world">
+    
+    <!-- Physics -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    
+    <!-- Plugins -->
+    <plugin filename="libignition-gazebo-physics-system.so" 
+            name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin filename="libignition-gazebo-user-commands-system.so" 
+            name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so" 
+            name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="libignition-gazebo-sensors-system.so"
+            name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- Lighting - Bright sunlight -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 20 0 0 0</pose>
+      <diffuse>0.9 0.9 0.85 1</diffuse>
+      <specular>0.3 0.3 0.3 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground Plane - Rich Soil -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>150 150</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>150 150</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.4 0.3 0.2 1</ambient>
+            <diffuse>0.45 0.35 0.25 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============== LEFT SECTION - CROP ROWS ============== -->
+    
+    <!-- Left Crop Row 1 -->
+    <model name="left_crop_row_1">
+      <static>true</static>
+      <pose>-10 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Left Crop Row 2 -->
+    <model name="left_crop_row_2">
+      <static>true</static>
+      <pose>-7.5 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Left Crop Row 3 -->
+    <model name="left_crop_row_3">
+      <static>true</static>
+      <pose>-5 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Left Crop Row 4 -->
+    <model name="left_crop_row_4">
+      <static>true</static>
+      <pose>-2.5 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============== RIGHT SECTION - CROP ROWS ============== -->
+    
+    <!-- Right Crop Row 1 -->
+    <model name="right_crop_row_1">
+      <static>true</static>
+      <pose>2.5 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Right Crop Row 2 -->
+    <model name="right_crop_row_2">
+      <static>true</static>
+      <pose>5 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Right Crop Row 3 -->
+    <model name="right_crop_row_3">
+      <static>true</static>
+      <pose>7.5 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Right Crop Row 4 -->
+    <model name="right_crop_row_4">
+      <static>true</static>
+      <pose>10 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.4 30 0.7</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============== WATER IRRIGATION CHANNELS ============== -->
+    
+    <!-- Left Main Irrigation Channel -->
+    <model name="water_left">
+      <static>true</static>
+      <pose>-12.5 0 0.05 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.5 32 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.5 32 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.35 0.65 0.85</ambient>
+            <diffuse>0.15 0.45 0.75 0.85</diffuse>
+            <specular>0.8 0.8 0.9 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Right Main Irrigation Channel -->
+    <model name="water_right">
+      <static>true</static>
+      <pose>12.5 0 0.05 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.5 32 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.5 32 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.35 0.65 0.85</ambient>
+            <diffuse>0.15 0.45 0.75 0.85</diffuse>
+            <specular>0.8 0.8 0.9 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Central Pathway Water Line -->
+    <model name="water_center">
+      <static>true</static>
+      <pose>0 0 0.03 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.6 32 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.6 32 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.35 0.65 0.85</ambient>
+            <diffuse>0.15 0.45 0.75 0.85</diffuse>
+            <specular>0.8 0.8 0.9 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============== FARM BUILDINGS ============== -->
+    
+    <!-- Main Barn -->
+    <model name="main_barn">
+      <static>true</static>
+      <pose>15 -12 2.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6 5 5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6 5 5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.65 0.25 0.15 1</ambient>
+            <diffuse>0.75 0.3 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Barn Roof -->
+    <model name="barn_roof">
+      <static>true</static>
+      <pose>15 -12 5.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6.5 5.5 0.3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.4 0.15 0.1 1</ambient>
+            <diffuse>0.5 0.2 0.15 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Grain Silo -->
+    <model name="silo">
+      <static>true</static>
+      <pose>20 -12 3.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>1.5</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>1.5</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.3 0.3 0.3 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Silo Top -->
+    <model name="silo_top">
+      <static>true</static>
+      <pose>20 -12 7.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>1.6</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.5 0.1 0.1 1</ambient>
+            <diffuse>0.6 0.2 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Greenhouse -->
+    <model name="greenhouse">
+      <static>true</static>
+      <pose>-15 -10 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>5 8 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5 8 3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.9 0.85 0.6</ambient>
+            <diffuse>0.85 0.95 0.9 0.7</diffuse>
+            <specular>0.9 0.9 0.9 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Water Tank -->
+    <model name="water_tank">
+      <static>true</static>
+      <pose>-18 8 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>1.2</radius>
+              <length>3</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>1.2</radius>
+              <length>3</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.2 0.45 0.7 1</ambient>
+            <diffuse>0.25 0.5 0.75 1</diffuse>
+            <specular>0.5 0.5 0.6 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============== HAY BALES ============== -->
+    
+    <model name="hay_bale_1">
+      <static>true</static>
+      <pose>-15 15 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.6</radius>
+              <length>0.8</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.6</radius>
+              <length>0.8</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.85 0.75 0.35 1</ambient>
+            <diffuse>0.9 0.8 0.4 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="hay_bale_2">
+      <static>true</static>
+      <pose>-13.5 15 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.6</radius>
+              <length>0.8</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.6</radius>
+              <length>0.8</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.85 0.75 0.35 1</ambient>
+            <diffuse>0.9 0.8 0.4 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="hay_bale_3">
+      <static>true</static>
+      <pose>-14.2 16.3 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.6</radius>
+              <length>0.8</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.6</radius>
+              <length>0.8</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.85 0.75 0.35 1</ambient>
+            <diffuse>0.9 0.8 0.4 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============== TRACTOR & EQUIPMENT ============== -->
+    
+    <!-- Tractor -->
+    <model name="tractor">
+      <static>true</static>
+      <pose>12 15 0.7 0 0 -0.5</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2.5 1.5 1.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.5 1.5 1.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.15 0.55 0.15 1</ambient>
+            <diffuse>0.2 0.65 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Wheelbarrow -->
+    <model name="wheelbarrow">
+      <static>true</static>
+      <pose>-12 -15 0.3 0 0.3 0.8</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.8 0.5 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.8 0.5 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.3 0.1 1</ambient>
+            <diffuse>0.7 0.4 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tool Shed -->
+    <model name="tool_shed">
+      <static>true</static>
+      <pose>-20 -12 1.2 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>3 3 2.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3 3 2.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.4 0.3 1</ambient>
+            <diffuse>0.6 0.5 0.4 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============== FARM FENCE ============== -->
+    
+    <!-- North Fence -->
+    <model name="fence_north">
+      <static>true</static>
+      <pose>0 18 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>45 0.15 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>45 0.15 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.35 0.2 1</ambient>
+            <diffuse>0.6 0.45 0.3 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- South Fence -->
+    <model name="fence_south">
+      <static>true</static>
+      <pose>0 -18 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>45 0.15 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>45 0.15 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.35 0.2 1</ambient>
+            <diffuse>0.6 0.45 0.3 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- East Fence -->
+    <model name="fence_east">
+      <static>true</static>
+      <pose>22.5 0 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.15 36 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.15 36 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.35 0.2 1</ambient>
+            <diffuse>0.6 0.45 0.3 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- West Fence -->
+    <model name="fence_west">
+      <static>true</static>
+      <pose>-22.5 0 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.15 36 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.15 36 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.35 0.2 1</ambient>
+            <diffuse>0.6 0.45 0.3 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
