@@ -1,6 +1,8 @@
 # farm_bot
 
-![Farm bot simulation](https://github.com/user-attachments/assets/e417cf81-365e-42d7-9247-a38cca036478)
+
+https://github.com/user-attachments/assets/12f38394-97e0-48a4-a17e-bd8de1e3639f
+
 
 A ROS 2 package for a farm robot simulated in Gazebo (Ignition). The robot drives through a farm world and uses LiDAR-based obstacle avoidance to move around obstacles.
 
@@ -77,3 +79,5 @@ Apache License 2.0. See `setup.py` for details.
 ## Maintainer
 
 Rosemary Ojoawo (rbojoawo@student.lautech.edu.ng)
+
+![Farm bot simulation](https://github.com/user-attachments/assets/e417cf81-365e-42d7-9247-a38cca036478)
